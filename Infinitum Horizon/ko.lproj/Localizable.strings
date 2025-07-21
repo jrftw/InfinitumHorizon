@@ -1,0 +1,212 @@
+/* 
+  Localizable.strings
+  Infinitum Horizon
+  
+  Korean localization file
+*/
+
+// MARK: - App Information
+"app_name" = "인피니텀 호라이즌";
+"app_subtitle" = "다시 오신 것을 환영합니다";
+"app_version" = "버전";
+"app_build" = "빌드";
+"app_about" = "정보";
+
+// MARK: - Navigation
+"nav_home" = "홈";
+"nav_screens" = "화면";
+"nav_connect" = "연결";
+"nav_settings" = "설정";
+"nav_account" = "계정";
+
+// MARK: - Authentication
+"auth_sign_in" = "로그인";
+"auth_sign_up" = "가입";
+"auth_create_account" = "계정 만들기";
+"auth_email" = "이메일";
+"auth_password" = "비밀번호";
+"auth_username" = "사용자 이름";
+"auth_confirm_password" = "비밀번호 확인";
+"auth_remember_me" = "로그인 상태 유지";
+"auth_forgot_password" = "비밀번호를 잊으셨나요?";
+"auth_no_account" = "계정이 없으신가요?";
+"auth_has_account" = "이미 계정이 있으신가요?";
+"auth_error_title" = "인증 오류";
+"auth_error_unknown" = "알 수 없는 오류가 발생했습니다";
+"auth_enter_email" = "이메일을 입력하세요";
+"auth_enter_password" = "비밀번호를 입력하세요";
+"auth_enter_username" = "사용자 이름을 입력하세요";
+"auth_enter_confirm_password" = "비밀번호를 확인하세요";
+
+// MARK: - Content Management
+"content_item" = "항목";
+"content_add_item" = "항목 추가";
+"content_select_item" = "항목을 선택하세요";
+"content_select_item_description" = "사이드바에서 항목을 선택하여 세부 정보를 확인하세요";
+"content_item_at" = "%@의 항목";
+
+// MARK: - Premium Features
+"premium_upgrade" = "프리미엄으로 업그레이드";
+"premium_upgrade_description" = "모든 기능을 잠금 해제하고 광고를 제거하세요";
+"premium_features" = "프리미엄 기능";
+"premium_pricing" = "가격";
+"premium_terms" = "이용약관";
+"premium_terms_description" = "프리미엄 구독은 현재 기간 종료 최소 24시간 전에 취소하지 않는 한 자동으로 갱신됩니다. 기기의 계정 설정에서 구독을 관리할 수 있습니다.";
+"premium_enter_code" = "프로모션 코드 입력";
+"premium_enter_code_description" = "프리미엄 액세스를 위해 프로모션 코드를 사용하세요";
+"premium_code" = "프로모션 코드";
+"premium_validating" = "코드 확인 중...";
+"premium_available_codes" = "사용 가능한 코드";
+"premium_active" = "프리미엄 활성";
+"premium_status" = "프리미엄 상태";
+"premium_free" = "무료";
+"premium_premium" = "프리미엄";
+"premium_most_popular" = "가장 인기";
+
+// MARK: - Device Connectivity
+"connectivity_device_connectivity" = "기기 연결";
+"connectivity_multipeer" = "멀티피어 연결";
+"connectivity_status" = "상태:";
+"connectivity_host" = "호스트";
+"connectivity_browse" = "찾아보기";
+"connectivity_connected_devices" = "연결된 기기";
+"connectivity_send_message" = "메시지 보내기";
+"connectivity_received_messages" = "받은 메시지";
+
+// MARK: - Platform Specific
+"platform_ios" = "iOS";
+"platform_macos" = "macOS";
+"platform_tvos" = "tvOS";
+"platform_watchos" = "watchOS";
+"platform_visionos" = "visionOS";
+"platform_unknown" = "알 수 없음";
+"platform_apple_tv" = "Apple TV 에디션";
+"platform_spatial_computing" = "공간 컴퓨팅 경험";
+
+// MARK: - Settings
+"settings_appearance" = "외관";
+"settings_features" = "기능";
+"settings_quick_actions" = "빠른 작업";
+"settings_apple_tv_features" = "Apple TV 기능";
+
+// MARK: - Screens
+"screens_free" = "무료 화면";
+"screens_premium" = "프리미엄 화면";
+"screens_available" = "사용 가능한 화면";
+"screens_screen_number" = "화면 %d";
+"screens_unlocked" = "%d/%d 화면";
+
+// MARK: - System Messages
+"system_initializing" = "초기화 중...";
+"system_fallback_mode" = "폴백 모드";
+"system_fallback_description" = "SwiftData를 사용할 수 없습니다. 폴백 모드에서 실행 중입니다.";
+"system_counter" = "카운터: %d";
+"system_app_launched" = "앱이 성공적으로 시작되었습니다";
+"system_swiftdata_not_available" = "SwiftData를 사용할 수 없음";
+"system_no_crashes" = "충돌 없음";
+"system_external_display" = "외부 디스플레이";
+"system_external_display_connected" = "외부 디스플레이에 연결됨";
+
+// MARK: - User Interface
+"ui_ok" = "확인";
+"ui_cancel" = "취소";
+"ui_save" = "저장";
+"ui_delete" = "삭제";
+"ui_edit" = "편집";
+"ui_close" = "닫기";
+"ui_back" = "뒤로";
+"ui_next" = "다음";
+"ui_previous" = "이전";
+"ui_done" = "완료";
+"ui_loading" = "로딩 중...";
+"ui_error" = "오류";
+"ui_success" = "성공";
+"ui_warning" = "경고";
+"ui_info" = "정보";
+
+// MARK: - Time and Date
+"time_today" = "오늘";
+"time_yesterday" = "어제";
+"time_tomorrow" = "내일";
+"time_just_now" = "방금";
+"time_minutes_ago" = "%d분 전";
+"time_hours_ago" = "%d시간 전";
+"time_days_ago" = "%d일 전";
+
+// MARK: - Battery and System
+"battery_percentage" = "%d%%";
+"battery_charging" = "충전 중";
+"battery_low" = "배터리 부족";
+"battery_critical" = "배터리 위험";
+
+// MARK: - Messages and Alerts
+"message_alert" = "경고";
+"message_notification" = "알림";
+"message_confirmation" = "확인";
+"message_are_you_sure" = "확실하신가요?";
+"message_operation_complete" = "작업 완료";
+"message_operation_failed" = "작업 실패";
+
+// MARK: - Validation Messages
+"validation_required" = "이 필드는 필수입니다";
+"validation_email_invalid" = "유효한 이메일 주소를 입력하세요";
+"validation_password_short" = "비밀번호는 최소 8자 이상이어야 합니다";
+"validation_password_mismatch" = "비밀번호가 일치하지 않습니다";
+"validation_username_short" = "사용자 이름은 최소 3자 이상이어야 합니다";
+"validation_username_taken" = "사용자 이름이 이미 사용 중입니다";
+
+// MARK: - Network and Connectivity
+"network_offline" = "오프라인입니다";
+"network_connecting" = "연결 중...";
+"network_connected" = "연결됨";
+"network_disconnected" = "연결 해제됨";
+"network_error" = "네트워크 오류";
+"network_timeout" = "연결 시간 초과";
+
+// MARK: - Data Management
+"data_saving" = "저장 중...";
+"data_saved" = "저장됨";
+"data_loading" = "로딩 중...";
+"data_loaded" = "로드됨";
+"data_deleting" = "삭제 중...";
+"data_deleted" = "삭제됨";
+"data_error" = "데이터 오류";
+"data_sync" = "동기화 중...";
+"data_synced" = "동기화됨";
+
+// MARK: - Permissions
+"permission_camera" = "카메라 액세스";
+"permission_photo" = "사진 라이브러리 액세스";
+"permission_location" = "위치 액세스";
+"permission_notification" = "알림 액세스";
+"permission_microphone" = "마이크 액세스";
+"permission_required" = "권한 필요";
+"permission_denied" = "권한 거부됨";
+"permission_grant" = "권한 허용";
+"permission_settings" = "설정 열기";
+
+// MARK: - Store and Purchases
+"store_purchase" = "구매";
+"store_restore" = "구매 복원";
+"store_purchasing" = "구매 중...";
+"store_purchased" = "구매됨";
+"store_failed" = "구매 실패";
+"store_cancelled" = "구매 취소됨";
+"store_not_available" = "스토어를 사용할 수 없음";
+"store_price" = "가격";
+"store_period" = "기간";
+"savings" = "절약";
+
+// MARK: - Accessibility
+"accessibility_back_button" = "뒤로 버튼";
+"accessibility_close_button" = "닫기 버튼";
+"accessibility_menu_button" = "메뉴 버튼";
+"accessibility_settings_button" = "설정 버튼";
+"accessibility_add_button" = "추가 버튼";
+"accessibility_delete_button" = "삭제 버튼";
+"accessibility_edit_button" = "편집 버튼";
+"accessibility_save_button" = "저장 버튼";
+"accessibility_cancel_button" = "취소 버튼";
+"accessibility_loading_indicator" = "로딩 표시기";
+"accessibility_success_indicator" = "성공 표시기";
+"accessibility_error_indicator" = "오류 표시기"; 

@@ -1,0 +1,212 @@
+/* 
+  Localizable.strings
+  Infinitum Horizon
+  
+  Italian localization file
+*/
+
+// MARK: - App Information
+"app_name" = "Infinitum Horizon";
+"app_subtitle" = "Bentornato";
+"app_version" = "Versione";
+"app_build" = "Build";
+"app_about" = "Informazioni";
+
+// MARK: - Navigation
+"nav_home" = "Home";
+"nav_screens" = "Schermate";
+"nav_connect" = "Connetti";
+"nav_settings" = "Impostazioni";
+"nav_account" = "Account";
+
+// MARK: - Authentication
+"auth_sign_in" = "Accedi";
+"auth_sign_up" = "Registrati";
+"auth_create_account" = "Crea Account";
+"auth_email" = "Email";
+"auth_password" = "Password";
+"auth_username" = "Nome Utente";
+"auth_confirm_password" = "Conferma Password";
+"auth_remember_me" = "Ricordami";
+"auth_forgot_password" = "Password dimenticata?";
+"auth_no_account" = "Non hai un account?";
+"auth_has_account" = "Hai già un account?";
+"auth_error_title" = "Errore di Autenticazione";
+"auth_error_unknown" = "Si è verificato un errore sconosciuto";
+"auth_enter_email" = "Inserisci la tua email";
+"auth_enter_password" = "Inserisci la tua password";
+"auth_enter_username" = "Inserisci il tuo nome utente";
+"auth_enter_confirm_password" = "Conferma la tua password";
+
+// MARK: - Content Management
+"content_item" = "Elemento";
+"content_add_item" = "Aggiungi Elemento";
+"content_select_item" = "Seleziona un elemento";
+"content_select_item_description" = "Scegli un elemento dalla barra laterale per visualizzare i dettagli";
+"content_item_at" = "Elemento alle %@";
+
+// MARK: - Premium Features
+"premium_upgrade" = "Passa a Premium";
+"premium_upgrade_description" = "Sblocca tutte le funzionalità e rimuovi gli annunci";
+"premium_features" = "Funzionalità Premium";
+"premium_pricing" = "Prezzi";
+"premium_terms" = "Termini e Condizioni";
+"premium_terms_description" = "L'abbonamento premium si rinnoverà automaticamente a meno che non venga annullato almeno 24 ore prima della fine del periodo corrente. Puoi gestire i tuoi abbonamenti nelle impostazioni dell'account del tuo dispositivo.";
+"premium_enter_code" = "Inserisci Codice Promozionale";
+"premium_enter_code_description" = "Riscatta il tuo codice promozionale per l'accesso premium";
+"premium_code" = "Codice Promozionale";
+"premium_validating" = "Validazione codice...";
+"premium_available_codes" = "Codici Disponibili";
+"premium_active" = "Premium Attivo";
+"premium_status" = "Stato Premium";
+"premium_free" = "Gratuito";
+"premium_premium" = "Premium";
+"premium_most_popular" = "PIÙ POPOLARE";
+
+// MARK: - Device Connectivity
+"connectivity_device_connectivity" = "Connettività Dispositivi";
+"connectivity_multipeer" = "Connettività Multipeer";
+"connectivity_status" = "Stato:";
+"connectivity_host" = "Host";
+"connectivity_browse" = "Sfoglia";
+"connectivity_connected_devices" = "Dispositivi Connessi";
+"connectivity_send_message" = "Invia Messaggio";
+"connectivity_received_messages" = "Messaggi Ricevuti";
+
+// MARK: - Platform Specific
+"platform_ios" = "iOS";
+"platform_macos" = "macOS";
+"platform_tvos" = "tvOS";
+"platform_watchos" = "watchOS";
+"platform_visionos" = "visionOS";
+"platform_unknown" = "Sconosciuto";
+"platform_apple_tv" = "Edizione Apple TV";
+"platform_spatial_computing" = "Esperienza di Calcolo Spaziale";
+
+// MARK: - Settings
+"settings_appearance" = "Aspetto";
+"settings_features" = "Funzionalità";
+"settings_quick_actions" = "Azioni Rapide";
+"settings_apple_tv_features" = "Funzionalità Apple TV";
+
+// MARK: - Screens
+"screens_free" = "Schermate Gratuite";
+"screens_premium" = "Schermate Premium";
+"screens_available" = "Schermate Disponibili";
+"screens_screen_number" = "Schermata %d";
+"screens_unlocked" = "%d/%d schermate";
+
+// MARK: - System Messages
+"system_initializing" = "Inizializzazione...";
+"system_fallback_mode" = "Modalità Fallback";
+"system_fallback_description" = "SwiftData non è disponibile. Esecuzione in modalità fallback.";
+"system_counter" = "Contatore: %d";
+"system_app_launched" = "App Avviata con Successo";
+"system_swiftdata_not_available" = "SwiftData Non Disponibile";
+"system_no_crashes" = "Nessun Crash";
+"system_external_display" = "Display Esterno";
+"system_external_display_connected" = "Connesso al display esterno";
+
+// MARK: - User Interface
+"ui_ok" = "OK";
+"ui_cancel" = "Annulla";
+"ui_save" = "Salva";
+"ui_delete" = "Elimina";
+"ui_edit" = "Modifica";
+"ui_close" = "Chiudi";
+"ui_back" = "Indietro";
+"ui_next" = "Avanti";
+"ui_previous" = "Precedente";
+"ui_done" = "Fatto";
+"ui_loading" = "Caricamento...";
+"ui_error" = "Errore";
+"ui_success" = "Successo";
+"ui_warning" = "Avviso";
+"ui_info" = "Informazioni";
+
+// MARK: - Time and Date
+"time_today" = "Oggi";
+"time_yesterday" = "Ieri";
+"time_tomorrow" = "Domani";
+"time_just_now" = "Proprio ora";
+"time_minutes_ago" = "%d minuti fa";
+"time_hours_ago" = "%d ore fa";
+"time_days_ago" = "%d giorni fa";
+
+// MARK: - Battery and System
+"battery_percentage" = "%d%%";
+"battery_charging" = "Caricamento";
+"battery_low" = "Batteria Scarica";
+"battery_critical" = "Batteria Critica";
+
+// MARK: - Messages and Alerts
+"message_alert" = "Avviso";
+"message_notification" = "Notifica";
+"message_confirmation" = "Conferma";
+"message_are_you_sure" = "Sei sicuro?";
+"message_operation_complete" = "Operazione Completata";
+"message_operation_failed" = "Operazione Fallita";
+
+// MARK: - Validation Messages
+"validation_required" = "Questo campo è obbligatorio";
+"validation_email_invalid" = "Inserisci un indirizzo email valido";
+"validation_password_short" = "La password deve essere di almeno 8 caratteri";
+"validation_password_mismatch" = "Le password non corrispondono";
+"validation_username_short" = "Il nome utente deve essere di almeno 3 caratteri";
+"validation_username_taken" = "Il nome utente è già in uso";
+
+// MARK: - Network and Connectivity
+"network_offline" = "Sei offline";
+"network_connecting" = "Connessione...";
+"network_connected" = "Connesso";
+"network_disconnected" = "Disconnesso";
+"network_error" = "Errore di Rete";
+"network_timeout" = "Timeout di Connessione";
+
+// MARK: - Data Management
+"data_saving" = "Salvataggio...";
+"data_saved" = "Salvato";
+"data_loading" = "Caricamento...";
+"data_loaded" = "Caricato";
+"data_deleting" = "Eliminazione...";
+"data_deleted" = "Eliminato";
+"data_error" = "Errore Dati";
+"data_sync" = "Sincronizzazione...";
+"data_synced" = "Sincronizzato";
+
+// MARK: - Permissions
+"permission_camera" = "Accesso alla Fotocamera";
+"permission_photo" = "Accesso alla Libreria Foto";
+"permission_location" = "Accesso alla Posizione";
+"permission_notification" = "Accesso alle Notifiche";
+"permission_microphone" = "Accesso al Microfono";
+"permission_required" = "Permesso Richiesto";
+"permission_denied" = "Permesso Negato";
+"permission_grant" = "Concedi Permesso";
+"permission_settings" = "Apri Impostazioni";
+
+// MARK: - Store and Purchases
+"store_purchase" = "Acquista";
+"store_restore" = "Ripristina Acquisti";
+"store_purchasing" = "Acquisto...";
+"store_purchased" = "Acquistato";
+"store_failed" = "Acquisto Fallito";
+"store_cancelled" = "Acquisto Annullato";
+"store_not_available" = "Store Non Disponibile";
+"store_price" = "Prezzo";
+"store_period" = "Periodo";
+"savings" = "Risparmio";
+
+// MARK: - Accessibility
+"accessibility_back_button" = "Pulsante Indietro";
+"accessibility_close_button" = "Pulsante Chiudi";
+"accessibility_menu_button" = "Pulsante Menu";
+"accessibility_settings_button" = "Pulsante Impostazioni";
+"accessibility_add_button" = "Pulsante Aggiungi";
+"accessibility_delete_button" = "Pulsante Elimina";
+"accessibility_edit_button" = "Pulsante Modifica";
+"accessibility_save_button" = "Pulsante Salva";
+"accessibility_cancel_button" = "Pulsante Annulla";
+"accessibility_loading_indicator" = "Indicatore di Caricamento";
+"accessibility_success_indicator" = "Indicatore di Successo";
+"accessibility_error_indicator" = "Indicatore di Errore"; 

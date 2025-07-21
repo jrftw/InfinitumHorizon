@@ -1,0 +1,212 @@
+/* 
+  Localizable.strings
+  Infinitum Horizon
+  
+  Japanese localization file
+*/
+
+// MARK: - App Information
+"app_name" = "インフィニタム・ホライズン";
+"app_subtitle" = "おかえりなさい";
+"app_version" = "バージョン";
+"app_build" = "ビルド";
+"app_about" = "アプリについて";
+
+// MARK: - Navigation
+"nav_home" = "ホーム";
+"nav_screens" = "画面";
+"nav_connect" = "接続";
+"nav_settings" = "設定";
+"nav_account" = "アカウント";
+
+// MARK: - Authentication
+"auth_sign_in" = "サインイン";
+"auth_sign_up" = "サインアップ";
+"auth_create_account" = "アカウント作成";
+"auth_email" = "メールアドレス";
+"auth_password" = "パスワード";
+"auth_username" = "ユーザー名";
+"auth_confirm_password" = "パスワード確認";
+"auth_remember_me" = "ログイン状態を保持";
+"auth_forgot_password" = "パスワードを忘れた場合";
+"auth_no_account" = "アカウントをお持ちでない場合";
+"auth_has_account" = "すでにアカウントをお持ちの場合";
+"auth_error_title" = "認証エラー";
+"auth_error_unknown" = "不明なエラーが発生しました";
+"auth_enter_email" = "メールアドレスを入力してください";
+"auth_enter_password" = "パスワードを入力してください";
+"auth_enter_username" = "ユーザー名を入力してください";
+"auth_enter_confirm_password" = "パスワードを確認してください";
+
+// MARK: - Content Management
+"content_item" = "アイテム";
+"content_add_item" = "アイテムを追加";
+"content_select_item" = "アイテムを選択";
+"content_select_item_description" = "サイドバーからアイテムを選択して詳細を表示";
+"content_item_at" = "%@のアイテム";
+
+// MARK: - Premium Features
+"premium_upgrade" = "プレミアムにアップグレード";
+"premium_upgrade_description" = "すべての機能をアンロックし、広告を削除";
+"premium_features" = "プレミアム機能";
+"premium_pricing" = "料金";
+"premium_terms" = "利用規約";
+"premium_terms_description" = "プレミアムサブスクリプションは、現在の期間終了の24時間前までにキャンセルしない限り、自動的に更新されます。サブスクリプションはデバイスのアカウント設定で管理できます。";
+"premium_enter_code" = "プロモコードを入力";
+"premium_enter_code_description" = "プロモコードを入力してプレミアムアクセスを取得";
+"premium_code" = "プロモコード";
+"premium_validating" = "コードを検証中...";
+"premium_available_codes" = "利用可能なコード";
+"premium_active" = "プレミアムアクティブ";
+"premium_status" = "プレミアムステータス";
+"premium_free" = "無料";
+"premium_premium" = "プレミアム";
+"premium_most_popular" = "最も人気";
+
+// MARK: - Device Connectivity
+"connectivity_device_connectivity" = "デバイス接続";
+"connectivity_multipeer" = "マルチピア接続";
+"connectivity_status" = "ステータス：";
+"connectivity_host" = "ホスト";
+"connectivity_browse" = "ブラウズ";
+"connectivity_connected_devices" = "接続済みデバイス";
+"connectivity_send_message" = "メッセージを送信";
+"connectivity_received_messages" = "受信したメッセージ";
+
+// MARK: - Platform Specific
+"platform_ios" = "iOS";
+"platform_macos" = "macOS";
+"platform_tvos" = "tvOS";
+"platform_watchos" = "watchOS";
+"platform_visionos" = "visionOS";
+"platform_unknown" = "不明";
+"platform_apple_tv" = "Apple TV エディション";
+"platform_spatial_computing" = "空間コンピューティング体験";
+
+// MARK: - Settings
+"settings_appearance" = "外観";
+"settings_features" = "機能";
+"settings_quick_actions" = "クイックアクション";
+"settings_apple_tv_features" = "Apple TV機能";
+
+// MARK: - Screens
+"screens_free" = "無料画面";
+"screens_premium" = "プレミアム画面";
+"screens_available" = "利用可能な画面";
+"screens_screen_number" = "画面 %d";
+"screens_unlocked" = "%d/%d 画面";
+
+// MARK: - System Messages
+"system_initializing" = "初期化中...";
+"system_fallback_mode" = "フォールバックモード";
+"system_fallback_description" = "SwiftDataが利用できません。フォールバックモードで実行中。";
+"system_counter" = "カウンター：%d";
+"system_app_launched" = "アプリが正常に起動しました";
+"system_swiftdata_not_available" = "SwiftDataが利用できません";
+"system_no_crashes" = "クラッシュなし";
+"system_external_display" = "外部ディスプレイ";
+"system_external_display_connected" = "外部ディスプレイに接続済み";
+
+// MARK: - User Interface
+"ui_ok" = "OK";
+"ui_cancel" = "キャンセル";
+"ui_save" = "保存";
+"ui_delete" = "削除";
+"ui_edit" = "編集";
+"ui_close" = "閉じる";
+"ui_back" = "戻る";
+"ui_next" = "次へ";
+"ui_previous" = "前へ";
+"ui_done" = "完了";
+"ui_loading" = "読み込み中...";
+"ui_error" = "エラー";
+"ui_success" = "成功";
+"ui_warning" = "警告";
+"ui_info" = "情報";
+
+// MARK: - Time and Date
+"time_today" = "今日";
+"time_yesterday" = "昨日";
+"time_tomorrow" = "明日";
+"time_just_now" = "今";
+"time_minutes_ago" = "%d分前";
+"time_hours_ago" = "%d時間前";
+"time_days_ago" = "%d日前";
+
+// MARK: - Battery and System
+"battery_percentage" = "%d%%";
+"battery_charging" = "充電中";
+"battery_low" = "バッテリー残量少";
+"battery_critical" = "バッテリー残量危険";
+
+// MARK: - Messages and Alerts
+"message_alert" = "アラート";
+"message_notification" = "通知";
+"message_confirmation" = "確認";
+"message_are_you_sure" = "本当によろしいですか？";
+"message_operation_complete" = "操作完了";
+"message_operation_failed" = "操作失敗";
+
+// MARK: - Validation Messages
+"validation_required" = "この項目は必須です";
+"validation_email_invalid" = "有効なメールアドレスを入力してください";
+"validation_password_short" = "パスワードは8文字以上である必要があります";
+"validation_password_mismatch" = "パスワードが一致しません";
+"validation_username_short" = "ユーザー名は3文字以上である必要があります";
+"validation_username_taken" = "ユーザー名は既に使用されています";
+
+// MARK: - Network and Connectivity
+"network_offline" = "オフラインです";
+"network_connecting" = "接続中...";
+"network_connected" = "接続済み";
+"network_disconnected" = "切断済み";
+"network_error" = "ネットワークエラー";
+"network_timeout" = "接続タイムアウト";
+
+// MARK: - Data Management
+"data_saving" = "保存中...";
+"data_saved" = "保存済み";
+"data_loading" = "読み込み中...";
+"data_loaded" = "読み込み済み";
+"data_deleting" = "削除中...";
+"data_deleted" = "削除済み";
+"data_error" = "データエラー";
+"data_sync" = "同期中...";
+"data_synced" = "同期済み";
+
+// MARK: - Permissions
+"permission_camera" = "カメラアクセス";
+"permission_photo" = "写真ライブラリアクセス";
+"permission_location" = "位置情報アクセス";
+"permission_notification" = "通知アクセス";
+"permission_microphone" = "マイクアクセス";
+"permission_required" = "権限が必要です";
+"permission_denied" = "権限が拒否されました";
+"permission_grant" = "権限を許可";
+"permission_settings" = "設定を開く";
+
+// MARK: - Store and Purchases
+"store_purchase" = "購入";
+"store_restore" = "購入を復元";
+"store_purchasing" = "購入中...";
+"store_purchased" = "購入済み";
+"store_failed" = "購入失敗";
+"store_cancelled" = "購入キャンセル";
+"store_not_available" = "ストアが利用できません";
+"store_price" = "価格";
+"store_period" = "期間";
+"savings" = "節約";
+
+// MARK: - Accessibility
+"accessibility_back_button" = "戻るボタン";
+"accessibility_close_button" = "閉じるボタン";
+"accessibility_menu_button" = "メニューボタン";
+"accessibility_settings_button" = "設定ボタン";
+"accessibility_add_button" = "追加ボタン";
+"accessibility_delete_button" = "削除ボタン";
+"accessibility_edit_button" = "編集ボタン";
+"accessibility_save_button" = "保存ボタン";
+"accessibility_cancel_button" = "キャンセルボタン";
+"accessibility_loading_indicator" = "読み込みインジケーター";
+"accessibility_success_indicator" = "成功インジケーター";
+"accessibility_error_indicator" = "エラーインジケーター"; 

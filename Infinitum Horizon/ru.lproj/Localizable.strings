@@ -1,0 +1,212 @@
+/* 
+  Localizable.strings
+  Infinitum Horizon
+  
+  Russian localization file
+*/
+
+// MARK: - App Information
+"app_name" = "Бесконечный Горизонт";
+"app_subtitle" = "Добро пожаловать обратно";
+"app_version" = "Версия";
+"app_build" = "Сборка";
+"app_about" = "О приложении";
+
+// MARK: - Navigation
+"nav_home" = "Главная";
+"nav_screens" = "Экраны";
+"nav_connect" = "Подключение";
+"nav_settings" = "Настройки";
+"nav_account" = "Аккаунт";
+
+// MARK: - Authentication
+"auth_sign_in" = "Войти";
+"auth_sign_up" = "Зарегистрироваться";
+"auth_create_account" = "Создать аккаунт";
+"auth_email" = "Электронная почта";
+"auth_password" = "Пароль";
+"auth_username" = "Имя пользователя";
+"auth_confirm_password" = "Подтвердить пароль";
+"auth_remember_me" = "Запомнить меня";
+"auth_forgot_password" = "Забыли пароль?";
+"auth_no_account" = "Нет аккаунта?";
+"auth_has_account" = "Уже есть аккаунт?";
+"auth_error_title" = "Ошибка аутентификации";
+"auth_error_unknown" = "Произошла неизвестная ошибка";
+"auth_enter_email" = "Введите вашу электронную почту";
+"auth_enter_password" = "Введите ваш пароль";
+"auth_enter_username" = "Введите ваше имя пользователя";
+"auth_enter_confirm_password" = "Подтвердите ваш пароль";
+
+// MARK: - Content Management
+"content_item" = "Элемент";
+"content_add_item" = "Добавить элемент";
+"content_select_item" = "Выберите элемент";
+"content_select_item_description" = "Выберите элемент из боковой панели для просмотра деталей";
+"content_item_at" = "Элемент в %@";
+
+// MARK: - Premium Features
+"premium_upgrade" = "Перейти на Premium";
+"premium_upgrade_description" = "Разблокируйте все функции и уберите рекламу";
+"premium_features" = "Premium функции";
+"premium_pricing" = "Цены";
+"premium_terms" = "Условия использования";
+"premium_terms_description" = "Premium подписка будет автоматически продлеваться, если не отменена как минимум за 24 часа до окончания текущего периода. Вы можете управлять своими подписками в настройках аккаунта вашего устройства.";
+"premium_enter_code" = "Ввести промо-код";
+"premium_enter_code_description" = "Активируйте ваш промо-код для Premium доступа";
+"premium_code" = "Промо-код";
+"premium_validating" = "Проверка кода...";
+"premium_available_codes" = "Доступные коды";
+"premium_active" = "Premium активен";
+"premium_status" = "Premium статус";
+"premium_free" = "Бесплатно";
+"premium_premium" = "Premium";
+"premium_most_popular" = "САМЫЙ ПОПУЛЯРНЫЙ";
+
+// MARK: - Device Connectivity
+"connectivity_device_connectivity" = "Подключение устройств";
+"connectivity_multipeer" = "Мультипир подключение";
+"connectivity_status" = "Статус:";
+"connectivity_host" = "Хост";
+"connectivity_browse" = "Обзор";
+"connectivity_connected_devices" = "Подключенные устройства";
+"connectivity_send_message" = "Отправить сообщение";
+"connectivity_received_messages" = "Полученные сообщения";
+
+// MARK: - Platform Specific
+"platform_ios" = "iOS";
+"platform_macos" = "macOS";
+"platform_tvos" = "tvOS";
+"platform_watchos" = "watchOS";
+"platform_visionos" = "visionOS";
+"platform_unknown" = "Неизвестно";
+"platform_apple_tv" = "Apple TV издание";
+"platform_spatial_computing" = "Пространственные вычисления";
+
+// MARK: - Settings
+"settings_appearance" = "Внешний вид";
+"settings_features" = "Функции";
+"settings_quick_actions" = "Быстрые действия";
+"settings_apple_tv_features" = "Apple TV функции";
+
+// MARK: - Screens
+"screens_free" = "Бесплатные экраны";
+"screens_premium" = "Premium экраны";
+"screens_available" = "Доступные экраны";
+"screens_screen_number" = "Экран %d";
+"screens_unlocked" = "%d/%d экранов";
+
+// MARK: - System Messages
+"system_initializing" = "Инициализация...";
+"system_fallback_mode" = "Режим отказоустойчивости";
+"system_fallback_description" = "SwiftData недоступен. Работа в режиме отказоустойчивости.";
+"system_counter" = "Счетчик: %d";
+"system_app_launched" = "Приложение успешно запущено";
+"system_swiftdata_not_available" = "SwiftData недоступен";
+"system_no_crashes" = "Нет сбоев";
+"system_external_display" = "Внешний дисплей";
+"system_external_display_connected" = "Подключен к внешнему дисплею";
+
+// MARK: - User Interface
+"ui_ok" = "ОК";
+"ui_cancel" = "Отмена";
+"ui_save" = "Сохранить";
+"ui_delete" = "Удалить";
+"ui_edit" = "Редактировать";
+"ui_close" = "Закрыть";
+"ui_back" = "Назад";
+"ui_next" = "Далее";
+"ui_previous" = "Предыдущий";
+"ui_done" = "Готово";
+"ui_loading" = "Загрузка...";
+"ui_error" = "Ошибка";
+"ui_success" = "Успех";
+"ui_warning" = "Предупреждение";
+"ui_info" = "Информация";
+
+// MARK: - Time and Date
+"time_today" = "Сегодня";
+"time_yesterday" = "Вчера";
+"time_tomorrow" = "Завтра";
+"time_just_now" = "Только что";
+"time_minutes_ago" = "%d минут назад";
+"time_hours_ago" = "%d часов назад";
+"time_days_ago" = "%d дней назад";
+
+// MARK: - Battery and System
+"battery_percentage" = "%d%%";
+"battery_charging" = "Зарядка";
+"battery_low" = "Низкий заряд батареи";
+"battery_critical" = "Критический заряд батареи";
+
+// MARK: - Messages and Alerts
+"message_alert" = "Предупреждение";
+"message_notification" = "Уведомление";
+"message_confirmation" = "Подтверждение";
+"message_are_you_sure" = "Вы уверены?";
+"message_operation_complete" = "Операция завершена";
+"message_operation_failed" = "Операция не удалась";
+
+// MARK: - Validation Messages
+"validation_required" = "Это поле обязательно для заполнения";
+"validation_email_invalid" = "Пожалуйста, введите действительный адрес электронной почты";
+"validation_password_short" = "Пароль должен содержать не менее 8 символов";
+"validation_password_mismatch" = "Пароли не совпадают";
+"validation_username_short" = "Имя пользователя должно содержать не менее 3 символов";
+"validation_username_taken" = "Имя пользователя уже занято";
+
+// MARK: - Network and Connectivity
+"network_offline" = "Вы не в сети";
+"network_connecting" = "Подключение...";
+"network_connected" = "Подключено";
+"network_disconnected" = "Отключено";
+"network_error" = "Ошибка сети";
+"network_timeout" = "Тайм-аут подключения";
+
+// MARK: - Data Management
+"data_saving" = "Сохранение...";
+"data_saved" = "Сохранено";
+"data_loading" = "Загрузка...";
+"data_loaded" = "Загружено";
+"data_deleting" = "Удаление...";
+"data_deleted" = "Удалено";
+"data_error" = "Ошибка данных";
+"data_sync" = "Синхронизация...";
+"data_synced" = "Синхронизировано";
+
+// MARK: - Permissions
+"permission_camera" = "Доступ к камере";
+"permission_photo" = "Доступ к библиотеке фотографий";
+"permission_location" = "Доступ к местоположению";
+"permission_notification" = "Доступ к уведомлениям";
+"permission_microphone" = "Доступ к микрофону";
+"permission_required" = "Требуется разрешение";
+"permission_denied" = "Разрешение отклонено";
+"permission_grant" = "Предоставить разрешение";
+"permission_settings" = "Открыть настройки";
+
+// MARK: - Store and Purchases
+"store_purchase" = "Купить";
+"store_restore" = "Восстановить покупки";
+"store_purchasing" = "Покупка...";
+"store_purchased" = "Куплено";
+"store_failed" = "Покупка не удалась";
+"store_cancelled" = "Покупка отменена";
+"store_not_available" = "Магазин недоступен";
+"store_price" = "Цена";
+"store_period" = "Период";
+"savings" = "Экономия";
+
+// MARK: - Accessibility
+"accessibility_back_button" = "Кнопка назад";
+"accessibility_close_button" = "Кнопка закрыть";
+"accessibility_menu_button" = "Кнопка меню";
+"accessibility_settings_button" = "Кнопка настроек";
+"accessibility_add_button" = "Кнопка добавить";
+"accessibility_delete_button" = "Кнопка удалить";
+"accessibility_edit_button" = "Кнопка редактировать";
+"accessibility_save_button" = "Кнопка сохранить";
+"accessibility_cancel_button" = "Кнопка отмена";
+"accessibility_loading_indicator" = "Индикатор загрузки";
+"accessibility_success_indicator" = "Индикатор успеха";
+"accessibility_error_indicator" = "Индикатор ошибки"; 

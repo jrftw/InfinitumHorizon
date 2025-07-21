@@ -1,0 +1,212 @@
+/* 
+  Localizable.strings
+  Infinitum Horizon
+  
+  Chinese (Simplified) localization file
+*/
+
+// MARK: - App Information
+"app_name" = "无限地平线";
+"app_subtitle" = "欢迎回来";
+"app_version" = "版本";
+"app_build" = "构建";
+"app_about" = "关于";
+
+// MARK: - Navigation
+"nav_home" = "首页";
+"nav_screens" = "屏幕";
+"nav_connect" = "连接";
+"nav_settings" = "设置";
+"nav_account" = "账户";
+
+// MARK: - Authentication
+"auth_sign_in" = "登录";
+"auth_sign_up" = "注册";
+"auth_create_account" = "创建账户";
+"auth_email" = "邮箱";
+"auth_password" = "密码";
+"auth_username" = "用户名";
+"auth_confirm_password" = "确认密码";
+"auth_remember_me" = "记住我";
+"auth_forgot_password" = "忘记密码？";
+"auth_no_account" = "没有账户？";
+"auth_has_account" = "已有账户？";
+"auth_error_title" = "认证错误";
+"auth_error_unknown" = "发生未知错误";
+"auth_enter_email" = "输入您的邮箱";
+"auth_enter_password" = "输入您的密码";
+"auth_enter_username" = "输入您的用户名";
+"auth_enter_confirm_password" = "确认您的密码";
+
+// MARK: - Content Management
+"content_item" = "项目";
+"content_add_item" = "添加项目";
+"content_select_item" = "选择一个项目";
+"content_select_item_description" = "从侧边栏选择一个项目查看详情";
+"content_item_at" = "项目于 %@";
+
+// MARK: - Premium Features
+"premium_upgrade" = "升级到高级版";
+"premium_upgrade_description" = "解锁所有功能并移除广告";
+"premium_features" = "高级功能";
+"premium_pricing" = "定价";
+"premium_terms" = "条款和条件";
+"premium_terms_description" = "高级订阅将自动续费，除非在当前期间结束前至少24小时取消。您可以在设备的账户设置中管理您的订阅。";
+"premium_enter_code" = "输入促销代码";
+"premium_enter_code_description" = "兑换您的促销代码获得高级访问权限";
+"premium_code" = "促销代码";
+"premium_validating" = "验证代码中...";
+"premium_available_codes" = "可用代码";
+"premium_active" = "高级版激活";
+"premium_status" = "高级状态";
+"premium_free" = "免费";
+"premium_premium" = "高级版";
+"premium_most_popular" = "最受欢迎";
+
+// MARK: - Device Connectivity
+"connectivity_device_connectivity" = "设备连接";
+"connectivity_multipeer" = "多点连接";
+"connectivity_status" = "状态：";
+"connectivity_host" = "主机";
+"connectivity_browse" = "浏览";
+"connectivity_connected_devices" = "已连接设备";
+"connectivity_send_message" = "发送消息";
+"connectivity_received_messages" = "收到的消息";
+
+// MARK: - Platform Specific
+"platform_ios" = "iOS";
+"platform_macos" = "macOS";
+"platform_tvos" = "tvOS";
+"platform_watchos" = "watchOS";
+"platform_visionos" = "visionOS";
+"platform_unknown" = "未知";
+"platform_apple_tv" = "Apple TV 版本";
+"platform_spatial_computing" = "空间计算体验";
+
+// MARK: - Settings
+"settings_appearance" = "外观";
+"settings_features" = "功能";
+"settings_quick_actions" = "快速操作";
+"settings_apple_tv_features" = "Apple TV 功能";
+
+// MARK: - Screens
+"screens_free" = "免费屏幕";
+"screens_premium" = "高级屏幕";
+"screens_available" = "可用屏幕";
+"screens_screen_number" = "屏幕 %d";
+"screens_unlocked" = "%d/%d 屏幕";
+
+// MARK: - System Messages
+"system_initializing" = "初始化中...";
+"system_fallback_mode" = "备用模式";
+"system_fallback_description" = "SwiftData 不可用。正在备用模式下运行。";
+"system_counter" = "计数器：%d";
+"system_app_launched" = "应用启动成功";
+"system_swiftdata_not_available" = "SwiftData 不可用";
+"system_no_crashes" = "无崩溃";
+"system_external_display" = "外部显示器";
+"system_external_display_connected" = "已连接到外部显示器";
+
+// MARK: - User Interface
+"ui_ok" = "确定";
+"ui_cancel" = "取消";
+"ui_save" = "保存";
+"ui_delete" = "删除";
+"ui_edit" = "编辑";
+"ui_close" = "关闭";
+"ui_back" = "返回";
+"ui_next" = "下一步";
+"ui_previous" = "上一步";
+"ui_done" = "完成";
+"ui_loading" = "加载中...";
+"ui_error" = "错误";
+"ui_success" = "成功";
+"ui_warning" = "警告";
+"ui_info" = "信息";
+
+// MARK: - Time and Date
+"time_today" = "今天";
+"time_yesterday" = "昨天";
+"time_tomorrow" = "明天";
+"time_just_now" = "刚刚";
+"time_minutes_ago" = "%d 分钟前";
+"time_hours_ago" = "%d 小时前";
+"time_days_ago" = "%d 天前";
+
+// MARK: - Battery and System
+"battery_percentage" = "%d%%";
+"battery_charging" = "充电中";
+"battery_low" = "电量低";
+"battery_critical" = "电量严重不足";
+
+// MARK: - Messages and Alerts
+"message_alert" = "警告";
+"message_notification" = "通知";
+"message_confirmation" = "确认";
+"message_are_you_sure" = "您确定吗？";
+"message_operation_complete" = "操作完成";
+"message_operation_failed" = "操作失败";
+
+// MARK: - Validation Messages
+"validation_required" = "此字段为必填项";
+"validation_email_invalid" = "请输入有效的邮箱地址";
+"validation_password_short" = "密码至少需要8个字符";
+"validation_password_mismatch" = "密码不匹配";
+"validation_username_short" = "用户名至少需要3个字符";
+"validation_username_taken" = "用户名已被使用";
+
+// MARK: - Network and Connectivity
+"network_offline" = "您已离线";
+"network_connecting" = "连接中...";
+"network_connected" = "已连接";
+"network_disconnected" = "已断开";
+"network_error" = "网络错误";
+"network_timeout" = "连接超时";
+
+// MARK: - Data Management
+"data_saving" = "保存中...";
+"data_saved" = "已保存";
+"data_loading" = "加载中...";
+"data_loaded" = "已加载";
+"data_deleting" = "删除中...";
+"data_deleted" = "已删除";
+"data_error" = "数据错误";
+"data_sync" = "同步中...";
+"data_synced" = "已同步";
+
+// MARK: - Permissions
+"permission_camera" = "相机访问";
+"permission_photo" = "照片库访问";
+"permission_location" = "位置访问";
+"permission_notification" = "通知访问";
+"permission_microphone" = "麦克风访问";
+"permission_required" = "需要权限";
+"permission_denied" = "权限被拒绝";
+"permission_grant" = "授予权限";
+"permission_settings" = "打开设置";
+
+// MARK: - Store and Purchases
+"store_purchase" = "购买";
+"store_restore" = "恢复购买";
+"store_purchasing" = "购买中...";
+"store_purchased" = "已购买";
+"store_failed" = "购买失败";
+"store_cancelled" = "购买已取消";
+"store_not_available" = "商店不可用";
+"store_price" = "价格";
+"store_period" = "期间";
+"savings" = "节省";
+
+// MARK: - Accessibility
+"accessibility_back_button" = "返回按钮";
+"accessibility_close_button" = "关闭按钮";
+"accessibility_menu_button" = "菜单按钮";
+"accessibility_settings_button" = "设置按钮";
+"accessibility_add_button" = "添加按钮";
+"accessibility_delete_button" = "删除按钮";
+"accessibility_edit_button" = "编辑按钮";
+"accessibility_save_button" = "保存按钮";
+"accessibility_cancel_button" = "取消按钮";
+"accessibility_loading_indicator" = "加载指示器";
+"accessibility_success_indicator" = "成功指示器";
+"accessibility_error_indicator" = "错误指示器"; 
