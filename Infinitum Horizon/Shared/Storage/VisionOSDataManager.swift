@@ -1,3 +1,15 @@
+//
+//  VisionOSDataManager.swift
+//  Infinitum Horizon
+//
+//  Created by Kevin Doyle Jr. on 7/20/25.
+//  Updated 7/21/2025 by @jrftw
+//
+//  visionOS-specific data management service without Firebase dependencies
+//  Provides local SwiftData persistence and CloudKit synchronization
+//  Handles visionOS-specific user creation and app lifecycle management
+//
+
 import Foundation
 import SwiftData
 import CloudKit
@@ -9,38 +21,93 @@ import UIKit
 import WatchKit
 #endif
 
+// MARK: - VisionOS Data Manager
+/// visionOS-specific data management service that operates without Firebase
+/// Provides local SwiftData persistence and CloudKit synchronization
+/// Handles visionOS-specific user creation and app lifecycle management
+/// Uses @MainActor for UI thread safety and ObservableObject for SwiftUI integration
 @MainActor
 class VisionOSDataManager: ObservableObject {
+    // MARK: - Published Properties
+    /// Current authenticated user for the app
+    /// Updated automatically when user data changes
     @Published var currentUser: User?
+    
+    /// Current active session for collaborative features
+    /// Manages multi-device session state with CloudKit synchronization
     @Published var currentSession: Session?
+    
+    /// Premium subscription status for current user
+    /// Controls access to premium features and content
     @Published var isPremium: Bool = false
+    
+    /// Number of screens unlocked for current user
+    /// Free users get 2 screens, premium users get all screens
     @Published var unlockedScreens: Int = 2
+    
+    /// Loading state for data operations
+    /// Used for UI feedback during async operations
     @Published var isLoading = false
+    
+    /// Error message for display to user
+    /// Set when data operations fail
     @Published var errorMessage: String?
+    
+    /// Current synchronization status for CloudKit operations
+    /// Provides feedback on sync operations for UI updates
     @Published var syncStatus: VisionOSSyncStatus = .idle
+    
+    /// Network connectivity status for CloudKit operations
+    /// Monitored to ensure reliable data synchronization
     @Published var isOnline = false
     
     // MARK: - Core Services
+    /// SwiftData model context for local database operations
     private let modelContext: ModelContext
     
     // MARK: - Public Accessors
+    /// Returns the SwiftData model context for direct database access
+    /// Used by other components that need direct SwiftData operations
     var getModelContext: ModelContext {
         return modelContext
     }
+    
+    /// CloudKit container for Apple ecosystem synchronization
     private let cloudKitContainer = CKContainer.default()
     
     // MARK: - Private Properties
+    /// Combine cancellables for managing subscriptions and bindings
     private var cancellables = Set<AnyCancellable>()
+    
+    /// Flag indicating if SwiftData is available and working
+    /// Used for fallback behavior when data layer fails
     private var isSwiftDataAvailable = true
+    
+    /// Dedicated queue for synchronization operations
+    /// Prevents blocking main thread during sync operations
     private var syncQueue = DispatchQueue(label: "com.infinitumhorizon.visionos.sync", qos: .utility)
+    
+    /// Timestamp of last successful synchronization
+    /// Used to prevent excessive sync operations
     private var lastSyncTime: Date?
+    
+    /// Timer for periodic synchronization operations
+    /// Automatically syncs data at regular intervals
     private var syncTimer: Timer?
     
     // MARK: - Configuration
+    /// Interval between periodic sync operations (5 minutes)
     private let syncInterval: TimeInterval = 300 // 5 minutes
+    
+    /// Maximum number of retry attempts for failed operations
     private let maxRetries = 3
+    
+    /// Delay between retry attempts (2 seconds)
     private let retryDelay: TimeInterval = 2
     
+    // MARK: - Initialization
+    /// Creates VisionOSDataManager with SwiftData model context
+    /// Sets up CloudKit synchronization and initializes all subsystems
     init(modelContext: ModelContext) {
         self.modelContext = modelContext
         setupBindings()
@@ -49,12 +116,15 @@ class VisionOSDataManager: ObservableObject {
         loadCurrentUser()
     }
     
+    /// Cleanup method that invalidates timers and removes observers
     deinit {
         syncTimer?.invalidate()
     }
     
-    // MARK: - Setup
+    // MARK: - Setup and Configuration
     
+    /// Sets up reactive bindings for published properties
+    /// Automatically updates derived properties when user changes
     private func setupBindings() {
         // Bind to current user changes
         $currentUser
@@ -65,6 +135,8 @@ class VisionOSDataManager: ObservableObject {
             .store(in: &cancellables)
     }
     
+    /// Sets up notification observers for app lifecycle events
+    /// Monitors app state changes for data persistence and synchronization
     private func setupNotifications() {
         // Monitor app state changes
         NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)
@@ -80,6 +152,8 @@ class VisionOSDataManager: ObservableObject {
             .store(in: &cancellables)
     }
     
+    /// Starts periodic synchronization timer
+    /// Automatically syncs data at configured intervals
     private func startPeriodicSync() {
         syncTimer = Timer.scheduledTimer(withTimeInterval: syncInterval, repeats: true) { [weak self] _ in
             Task { @MainActor in
@@ -90,6 +164,8 @@ class VisionOSDataManager: ObservableObject {
     
     // MARK: - User Management
     
+    /// Loads existing user from device storage or creates anonymous user
+    /// Attempts to find existing user, falls back to creating visionOS-specific user
     private func loadCurrentUser() {
         Task {
             do {
@@ -110,6 +186,8 @@ class VisionOSDataManager: ObservableObject {
         }
     }
     
+    /// Creates anonymous user specifically for visionOS platform
+    /// Sets visionOS-specific defaults and skips email verification
     private func createAnonymousUser() async {
         let deviceId = getDeviceId()
         let platform = "visionOS"
@@ -148,6 +226,8 @@ class VisionOSDataManager: ObservableObject {
     
     // MARK: - Data Operations
     
+    /// Saves user data to SwiftData with error handling
+    /// Persists user changes to local storage
     func saveUser(_ user: User) async throws {
         do {
             modelContext.insert(user)
@@ -159,6 +239,8 @@ class VisionOSDataManager: ObservableObject {
         }
     }
     
+    /// Deletes user and all associated data from SwiftData
+    /// Removes user from local storage and clears current user if applicable
     func deleteUser(_ user: User) async throws {
         do {
             modelContext.delete(user)
@@ -173,6 +255,8 @@ class VisionOSDataManager: ObservableObject {
         }
     }
     
+    /// Finds user by email address (case-insensitive)
+    /// Returns nil if no user found with matching email
     func findUserByEmail(_ email: String) async -> User? {
         do {
             let descriptor = FetchDescriptor<User>(
@@ -190,6 +274,8 @@ class VisionOSDataManager: ObservableObject {
     
     // MARK: - Premium Features
     
+    /// Purchases premium subscription for current user
+    /// Updates user status and unlocks all features
     func purchasePremium() {
         guard let user = currentUser else { return }
         
@@ -208,6 +294,9 @@ class VisionOSDataManager: ObservableObject {
         }
     }
     
+    /// Unlocks premium features using visionOS-specific promotional code
+    /// Validates code and applies premium benefits
+    /// SUGGESTION: Consider moving promo codes to server-side validation
     func applyPromoCode(_ code: String) -> Bool {
         guard let user = currentUser else { return false }
         
@@ -235,12 +324,16 @@ class VisionOSDataManager: ObservableObject {
         }
     }
     
+    /// Checks if user can access specific screen number
+    /// Used for feature gating based on premium status
     func canAccessScreen(_ screenNumber: Int) -> Bool {
         return screenNumber <= unlockedScreens
     }
     
     // MARK: - Session Management
     
+    /// Creates new collaborative session with specified name
+    /// Adds current user as participant and saves to SwiftData
     func createSession(name: String) -> Session? {
         let session = Session(name: name)
         
@@ -269,6 +362,8 @@ class VisionOSDataManager: ObservableObject {
         }
     }
     
+    /// Joins existing session and adds current user as participant
+    /// Updates session participants and saves to SwiftData
     func joinSession(_ session: Session) {
         guard let user = currentUser else { return }
         
@@ -295,6 +390,8 @@ class VisionOSDataManager: ObservableObject {
     
     // MARK: - Sync Operations
     
+    /// Performs data synchronization with CloudKit
+    /// Updates sync status and logs completion
     func syncData() async {
         syncStatus = VisionOSSyncStatus.syncing
         
@@ -305,6 +402,9 @@ class VisionOSDataManager: ObservableObject {
         AppLogger.shared.info("VisionOS data sync completed successfully")
     }
     
+    /// Internal method for CloudKit synchronization
+    /// Handles syncing user data, sessions, and preferences
+    /// SUGGESTION: Implement actual CloudKit sync logic
     private func syncWithCloudKit() async {
         // CloudKit sync implementation for visionOS
         // This would handle syncing user data, sessions, and preferences
@@ -313,12 +413,16 @@ class VisionOSDataManager: ObservableObject {
     
     // MARK: - App State Handlers
     
+    /// Handles app becoming active
+    /// Triggers data synchronization when app returns to foreground
     private func handleAppDidBecomeActive() {
         Task {
             await syncData()
         }
     }
     
+    /// Handles app resigning active
+    /// Saves any pending changes before app goes to background
     private func handleAppWillResignActive() {
         // Save any pending changes
         do {
@@ -331,6 +435,8 @@ class VisionOSDataManager: ObservableObject {
     
     // MARK: - Utility Methods
     
+    /// Gets unique device identifier for cross-device synchronization
+    /// Uses platform-specific methods to ensure unique identification
     private func getDeviceId() -> String {
         #if os(iOS) || os(tvOS)
         return UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString
@@ -346,6 +452,8 @@ class VisionOSDataManager: ObservableObject {
 
 // MARK: - Supporting Types
 
+/// Represents the current status of visionOS data synchronization operations
+/// Used for UI feedback and error handling
 enum VisionOSSyncStatus {
     case idle
     case syncing
@@ -353,6 +461,8 @@ enum VisionOSSyncStatus {
     case failed(Error)
 }
 
+/// Custom error types for VisionOSDataManager operations
+/// Provides detailed error information for debugging and user feedback
 enum DataManagerError: LocalizedError {
     case swiftDataError(Error)
     case cloudKitError(Error)

@@ -1,3 +1,15 @@
+//
+//  FirestoreExtensions.swift
+//  Infinitum Horizon
+//
+//  Created by Kevin Doyle Jr. on 7/20/25.
+//  Updated 7/21/2025 by @jrftw
+//
+//  Firestore serialization extensions for SwiftData models
+//  Provides bidirectional conversion between SwiftData models and Firestore documents
+//  Excluded from visionOS builds due to Firebase compatibility issues
+//
+
 import Foundation
 #if !os(visionOS)
 import FirebaseFirestore
@@ -5,9 +17,16 @@ import FirebaseFirestore
 
 #if !os(visionOS)
 // MARK: - User Firestore Extensions
+/// Extensions for converting User model between SwiftData and Firestore formats
+/// Handles complex user data including authentication, premium features, and security tokens
 
 extension User {
+    // MARK: - Firestore Serialization
+    /// Converts User model to Firestore document data format
+    /// Handles all user properties including optional fields and timestamp conversions
+    /// Throws FirestoreError if required data is missing or invalid
     func toFirestoreData() throws -> [String: Any] {
+        // Core required fields that must always be present
         var data: [String: Any] = [
             "id": id,
             "username": username,
@@ -27,7 +46,8 @@ extension User {
             "failedLoginAttempts": failedLoginAttempts
         ]
         
-        // Optional fields
+        // Optional fields - only include if they have values
+        // This prevents storing null values in Firestore
         if let emailVerificationToken = emailVerificationToken {
             data["emailVerificationToken"] = emailVerificationToken
         }
@@ -74,7 +94,12 @@ extension User {
         return data
     }
     
+    // MARK: - Firestore Deserialization
+    /// Creates User model from Firestore document data
+    /// Validates required fields and handles optional field restoration
+    /// Throws FirestoreError if required data is missing or invalid
     static func fromFirestoreData(_ data: [String: Any]) throws -> User {
+        // Validate required fields exist and have correct types
         guard let id = data["id"] as? String,
               let username = data["username"] as? String,
               let email = data["email"] as? String,
@@ -86,6 +111,7 @@ extension User {
             throw FirestoreError.invalidData("Missing required user fields")
         }
         
+        // Create user with required fields
         let user = User(
             username: username,
             email: email,
@@ -99,7 +125,7 @@ extension User {
         user.createdAt = createdAtTimestamp.dateValue()
         user.updatedAt = updatedAtTimestamp.dateValue()
         
-        // Set optional fields
+        // Set required boolean fields with defaults
         user.isEmailVerified = data["isEmailVerified"] as? Bool ?? false
         user.isActive = data["isActive"] as? Bool ?? true
         user.isPremium = data["isPremium"] as? Bool ?? false
@@ -109,7 +135,7 @@ extension User {
         user.preferences = data["preferences"] as? String ?? "{}"
         user.failedLoginAttempts = data["failedLoginAttempts"] as? Int ?? 0
         
-        // Optional timestamp fields
+        // Optional timestamp fields - convert from Firestore Timestamp to Date
         if let lastLoginTimestamp = data["lastLoginAt"] as? Timestamp {
             user.lastLoginAt = lastLoginTimestamp.dateValue()
         }
@@ -144,8 +170,13 @@ extension User {
 }
 
 // MARK: - Session Firestore Extensions
+/// Extensions for converting Session model between SwiftData and Firestore formats
+/// Handles session data including participant tracking and CloudKit integration
 
 extension Session {
+    // MARK: - Firestore Serialization
+    /// Converts Session model to Firestore document data format
+    /// Handles session properties and optional CloudKit record ID
     func toFirestoreData() throws -> [String: Any] {
         var data: [String: Any] = [
             "id": id,
@@ -156,6 +187,7 @@ extension Session {
             "participants": participants
         ]
         
+        // Optional CloudKit record ID for cross-platform synchronization
         if let cloudKitRecordId = cloudKitRecordId {
             data["cloudKitRecordId"] = cloudKitRecordId
         }
@@ -163,6 +195,9 @@ extension Session {
         return data
     }
     
+    // MARK: - Firestore Deserialization
+    /// Creates Session model from Firestore document data
+    /// Validates required fields and restores session state
     static func fromFirestoreData(_ data: [String: Any]) throws -> Session {
         guard let id = data["id"] as? String,
               let name = data["name"] as? String,
@@ -184,8 +219,13 @@ extension Session {
 }
 
 // MARK: - DevicePosition Firestore Extensions
+/// Extensions for converting DevicePosition model between SwiftData and Firestore formats
+/// Handles 3D spatial data for cross-device positioning
 
 extension DevicePosition {
+    // MARK: - Firestore Serialization
+    /// Converts DevicePosition model to Firestore document data format
+    /// Handles 3D coordinates, rotation, and device/session relationships
     func toFirestoreData() throws -> [String: Any] {
         return [
             "id": id,
@@ -199,6 +239,9 @@ extension DevicePosition {
         ]
     }
     
+    // MARK: - Firestore Deserialization
+    /// Creates DevicePosition model from Firestore document data
+    /// Validates all required spatial and relationship fields
     static func fromFirestoreData(_ data: [String: Any]) throws -> DevicePosition {
         guard let id = data["id"] as? String,
               let x = data["x"] as? Double,
@@ -227,7 +270,9 @@ extension DevicePosition {
     }
 }
 
-// MARK: - Firestore Error
+// MARK: - Firestore Error Types
+/// Custom error types for Firestore serialization and deserialization operations
+/// Provides detailed error information for debugging and error handling
 
 enum FirestoreError: LocalizedError {
     case invalidData(String)
@@ -244,5 +289,5 @@ enum FirestoreError: LocalizedError {
             return "Firestore decoding error: \(error.localizedDescription)"
         }
     }
-} 
+}
 #endif

@@ -42,14 +42,12 @@ struct iOSEntryView: View {
             .tag(2)
             
             // Cross-Device Control Tab
-            NavigationStack {
-                CrossDeviceControlView(viewModel: viewModel)
-            }
-            .tabItem {
-                Image(systemName: "iphone.gen3.circle")
-                Text("Control")
-            }
-            .tag(3)
+            CrossDeviceControlView(viewModel: viewModel)
+                .tabItem {
+                    Image(systemName: "iphone.gen3.circle")
+                    Text("Control")
+                }
+                .tag(3)
             
             // Settings Tab
             NavigationStack {

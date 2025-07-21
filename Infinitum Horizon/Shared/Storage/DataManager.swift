@@ -1,3 +1,15 @@
+//
+//  DataManager.swift
+//  Infinitum Horizon
+//
+//  Created by Kevin Doyle Jr. on 7/20/25.
+//  Updated 7/21/2025 by @jrftw
+//
+//  Core data management service for SwiftData operations and CloudKit synchronization
+//  Handles user management, session tracking, premium features, and device positioning
+//  Provides unified interface for local data persistence and cloud synchronization
+//
+
 import Foundation
 import SwiftData
 import CloudKit
@@ -9,20 +21,54 @@ import UIKit
 import WatchKit
 #endif
 
+// MARK: - Data Manager
+/// Main data management service that handles SwiftData operations and CloudKit synchronization
+/// Manages user data, sessions, premium features, and cross-device positioning
+/// Uses @MainActor for UI thread safety and ObservableObject for SwiftUI integration
 @MainActor
 class DataManager: ObservableObject {
+    // MARK: - Published Properties
+    /// Current authenticated user for the app
+    /// Updated automatically when user data changes
     @Published var currentUser: User?
+    
+    /// Current active session for collaborative features
+    /// Manages multi-device session state
     @Published var currentSession: Session?
+    
+    /// Premium subscription status for current user
+    /// Controls access to premium features and content
     @Published var isPremium: Bool = false
+    
+    /// Number of screens unlocked for current user
+    /// Free users get 2 screens, premium users get all screens
     @Published var unlockedScreens: Int = 2
+    
+    /// Loading state for data operations
+    /// Used for UI feedback during async operations
     @Published var isLoading = false
+    
+    /// Error message for display to user
+    /// Set when data operations fail
     @Published var errorMessage: String?
     
+    // MARK: - Private Properties
+    /// SwiftData model context for database operations
     private let modelContext: ModelContext
+    
+    /// CloudKit container for cloud synchronization
     private let cloudKitContainer = CKContainer.default()
+    
+    /// Combine cancellables for managing subscriptions
     private var cancellables = Set<AnyCancellable>()
+    
+    /// Flag indicating if SwiftData is available and working
+    /// Used for fallback behavior when data layer fails
     private var isSwiftDataAvailable = true
     
+    // MARK: - Initialization
+    /// Creates DataManager with SwiftData model context
+    /// Sets up bindings and loads existing user data
     init(modelContext: ModelContext) {
         self.modelContext = modelContext
         setupBindings()
@@ -31,10 +77,16 @@ class DataManager: ObservableObject {
     
     // MARK: - Public Access
     
+    /// Returns the SwiftData model context for direct database access
+    /// Used by other components that need direct SwiftData operations
     func getModelContext() -> ModelContext {
         return modelContext
     }
     
+    // MARK: - Setup and Configuration
+    
+    /// Sets up reactive bindings for published properties
+    /// Automatically updates derived properties when user changes
     private func setupBindings() {
         // Bind to current user changes
         $currentUser
@@ -45,6 +97,8 @@ class DataManager: ObservableObject {
             .store(in: &cancellables)
     }
     
+    /// Loads existing user from device storage
+    /// Attempts to find user by device ID for seamless app experience
     private func loadCurrentUser() {
         // Try to load existing user from device
         let deviceId = getDeviceId()
@@ -74,6 +128,8 @@ class DataManager: ObservableObject {
         }
     }
     
+    /// Tests if SwiftData is available and working properly
+    /// Used for fallback behavior when data layer fails
     private func testSwiftDataAvailability() -> Bool {
         do {
             // Try a simple fetch to test if SwiftData is working
@@ -87,6 +143,10 @@ class DataManager: ObservableObject {
         }
     }
     
+    // MARK: - Device Information
+    
+    /// Gets unique device identifier for cross-device synchronization
+    /// Uses platform-specific methods to ensure unique identification
     private func getDeviceId() -> String {
         #if os(iOS) || os(tvOS)
         return UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString
@@ -99,6 +159,8 @@ class DataManager: ObservableObject {
         #endif
     }
     
+    /// Gets current platform identifier for feature availability
+    /// Used for platform-specific functionality and analytics
     private func getCurrentPlatform() -> String {
         #if os(iOS)
         return "iOS"
@@ -115,6 +177,8 @@ class DataManager: ObservableObject {
     
     // MARK: - User Management
     
+    /// Saves user data to SwiftData with error handling
+    /// Persists user changes to local storage
     func saveUser(_ user: User) async throws {
         do {
             try modelContext.save()
@@ -127,6 +191,8 @@ class DataManager: ObservableObject {
         }
     }
     
+    /// Finds user by email address (case-insensitive)
+    /// Returns nil if no user found with matching email
     func findUserByEmail(_ email: String) -> User? {
         do {
             // Since emails are stored in lowercase in the User model,
@@ -145,6 +211,8 @@ class DataManager: ObservableObject {
         }
     }
     
+    /// Finds user by username (exact match)
+    /// Returns nil if no user found with matching username
     func findUserByUsername(_ username: String) -> User? {
         do {
             let descriptor = FetchDescriptor<User>(
@@ -160,6 +228,8 @@ class DataManager: ObservableObject {
         }
     }
     
+    /// Finds user by password reset token
+    /// Used for password reset workflow
     func findUserByResetToken(_ token: String) -> User? {
         do {
             let descriptor = FetchDescriptor<User>(
@@ -175,6 +245,8 @@ class DataManager: ObservableObject {
         }
     }
     
+    /// Deletes user and all associated data
+    /// Removes user from SwiftData and clears current user if applicable
     func deleteUser(_ user: User) async throws {
         do {
             modelContext.delete(user)
@@ -191,6 +263,9 @@ class DataManager: ObservableObject {
     
     // MARK: - Premium Features
     
+    /// Unlocks premium features using promotional code
+    /// Validates code and applies premium benefits if valid
+    /// SUGGESTION: Consider moving promo codes to server-side validation
     func unlockPremiumWithPromoCode(_ code: String) -> Bool {
         let validCodes = ["INFINITUM2025", "HORIZONFREE", "PREMIUM2025", "UNLOCKALL"]
         
@@ -217,6 +292,8 @@ class DataManager: ObservableObject {
         }
     }
     
+    /// Purchases premium subscription for current user
+    /// Updates user status and unlocks all features
     func purchasePremium() {
         guard let user = currentUser else { return }
         
@@ -235,12 +312,16 @@ class DataManager: ObservableObject {
         }
     }
     
+    /// Checks if user can access specific screen number
+    /// Used for feature gating based on premium status
     func canAccessScreen(_ screenNumber: Int) -> Bool {
         return screenNumber <= unlockedScreens
     }
     
     // MARK: - Session Management
     
+    /// Creates new collaborative session with specified name
+    /// Adds current user as participant and sets as current session
     func createSession(name: String) -> Session? {
         let session = Session(name: name)
         
@@ -269,6 +350,8 @@ class DataManager: ObservableObject {
         }
     }
     
+    /// Joins existing session by session ID
+    /// Adds current user as participant and sets as current session
     func joinSession(_ sessionId: String) -> Bool {
         do {
             let descriptor = FetchDescriptor<Session>(
@@ -306,6 +389,8 @@ class DataManager: ObservableObject {
         }
     }
     
+    /// Updates device position in 3D space for current session
+    /// Used for cross-device spatial awareness and positioning
     func updateDevicePosition(x: Double, y: Double, z: Double, rotation: Double) {
         guard let user = currentUser,
               let sessionId = user.currentSessionId else { return }
@@ -328,7 +413,9 @@ class DataManager: ObservableObject {
         }
     }
     
-    // MARK: - Premium Features
+    // MARK: - Premium Features (Duplicate Section)
+    /// POTENTIAL ISSUE: This section appears to be duplicated from above
+    /// SUGGESTION: Remove duplicate section and consolidate premium functionality
     
     func applyPromoCode(_ code: String) -> Bool {
         guard let user = currentUser else { return false }
@@ -361,10 +448,14 @@ class DataManager: ObservableObject {
     
     // MARK: - CloudKit Integration
     
+    /// Synchronizes user data to CloudKit with retry logic
+    /// Provides completion handler for operation feedback
     func syncToCloudKit(completion: @escaping (Result<Void, Error>) -> Void = { _ in }) {
         syncToCloudKitWithRetry(maxRetries: 3, completion: completion)
     }
     
+    /// Internal method for CloudKit sync with retry logic
+    /// Attempts sync operation with exponential backoff
     private func syncToCloudKitWithRetry(maxRetries: Int, currentRetry: Int = 0, completion: @escaping (Result<Void, Error>) -> Void) {
         guard let user = currentUser else {
             completion(.failure(DataManagerError.noCurrentUser))
@@ -394,6 +485,8 @@ class DataManager: ObservableObject {
     
     // MARK: - Error Types
     
+    /// Custom error types for DataManager operations
+    /// Provides detailed error information for debugging and user feedback
     enum DataManagerError: LocalizedError {
         case noCurrentUser
         case cloudKitError(Error)
