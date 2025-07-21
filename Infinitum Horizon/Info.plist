@@ -2,9 +2,328 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>Infinitum Horizon</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<true/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneConfigurationName</key>
+					<string>Default Configuration</string>
+					<key>UISceneDelegateClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
+		<string>background-processing</string>
+		<string>background-fetch</string>
 	</array>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>AccentColor</string>
+		<key>UIImageName</key>
+		<string>LaunchImage</string>
+	</dict>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+		<string>arkit</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~visionos</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Automatic</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>This app uses local network connectivity to enable device-to-device communication and data sharing.</string>
+	<key>NSLocalNetworkUsageDescription~visionos</key>
+	<string>This app uses local network connectivity to enable device-to-device communication and data sharing in spatial computing environments.</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_infinitumhorizon._tcp</string>
+		<string>_infinitumhorizon._udp</string>
+	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>This app uses the camera to enable augmented reality features and device connectivity.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This app uses the microphone for voice commands and audio communication features.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app uses location services to enhance device connectivity and provide location-based features.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>This app uses location services to enhance device connectivity and provide location-based features.</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>This app uses Health data to provide personalized insights and health-related features.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>This app uses Health data to provide personalized insights and health-related features.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>This app uses Face ID to securely authenticate users and protect sensitive data.</string>
+	<key>NSMotionUsageDescription</key>
+	<string>This app uses motion data to enhance user experience and provide gesture-based interactions.</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>This app uses Bluetooth to enable device connectivity and data sharing.</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>This app uses Bluetooth to enable device connectivity and data sharing.</string>
+	<key>NSNearbyInteractionUsageDescription</key>
+	<string>This app uses nearby interaction to enable spatial awareness and device proximity features.</string>
+	<key>NSHandsTrackingUsageDescription</key>
+	<string>This app uses hand tracking to enable gesture-based interactions in spatial computing environments.</string>
+	<key>NSEyeTrackingUsageDescription</key>
+	<string>This app uses eye tracking to enable gaze-based interactions in spatial computing environments.</string>
+	<key>NSWorldTrackingUsageDescription</key>
+	<string>This app uses world tracking to enable spatial awareness and augmented reality features.</string>
+	<key>NSBodyTrackingUsageDescription</key>
+	<string>This app uses body tracking to enable motion-based interactions and fitness features.</string>
+	<key>NSRealityCaptureUsageDescription</key>
+	<string>This app uses reality capture to enable spatial mapping and augmented reality features.</string>
+	<key>NSRealityCaptureUsageDescription~visionos</key>
+	<string>This app uses reality capture to enable spatial mapping and augmented reality features in visionOS.</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>tel</string>
+		<string>mailto</string>
+		<string>sms</string>
+		<string>facetime</string>
+		<string>facetime-audio</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>infinitumhorizon</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.infinitumhorizon.control</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>infinitumcontrol</string>
+			</array>
+		</dict>
+	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<!-- Custom fonts removed - using system fonts instead -->
+	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleDefault</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
+	<key>UIRequiresFullScreen</key>
+	<false/>
+	<key>UIRequiresPersistentWiFi</key>
+	<true/>
+	<key>UIPrerenderedIcon</key>
+	<false/>
+	<key>UISupportedExternalAccessoryProtocols</key>
+	<array>
+		<string>com.apple.mfi.gamecontroller</string>
+	</array>
+	<key>UIExternalDisplaySceneSessionRoleApplication</key>
+	<array>
+		<dict>
+			<key>UISceneConfigurationName</key>
+			<string>External Display</string>
+			<key>UISceneDelegateClassName</key>
+			<string>$(PRODUCT_MODULE_NAME).ExternalDisplaySceneDelegate</string>
+		</dict>
+	</array>
+	<key>UISupportedExternalAccessoryProtocols</key>
+	<array>
+		<string>com.apple.mfi.gamecontroller</string>
+		<string>com.apple.mfi.audio</string>
+	</array>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Quick Connect</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Connect to nearby devices</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).quickconnect</string>
+			<key>UIApplicationShortcutItemIconSymbolName</key>
+			<string>antenna.radiowaves.left.and.right</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Premium Upgrade</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Unlock all features</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).premium</string>
+			<key>UIApplicationShortcutItemIconSymbolName</key>
+			<string>crown.fill</string>
+		</dict>
+	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<false/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>localhost</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+	<key>UIKeyboardIsOptionalForiPad</key>
+	<true/>
+	<key>UIRequiresPersistentWiFi</key>
+	<true/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+		<string>background-processing</string>
+		<string>background-fetch</string>
+		<string>background-app-refresh</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~appletv</key>
+	<array>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIRequiresFullScreen~appletv</key>
+	<true/>
+	<key>UIRequiresPersistentWiFi~appletv</key>
+	<true/>
+	<key>UIBackgroundModes~appletv</key>
+	<array>
+		<string>background-processing</string>
+		<string>background-fetch</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~watchos</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+	</array>
+	<key>UIBackgroundModes~watchos</key>
+	<array>
+		<string>background-processing</string>
+		<string>background-fetch</string>
+		<string>workout-processing</string>
+	</array>
+	<key>WKWatchOnly</key>
+	<true/>
+	<key>WKWatchKitApp</key>
+	<true/>
+	<key>WKApplication</key>
+	<true/>
+	<key>WKCompanionAppBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>WKWatchKitApp~visionos</key>
+	<true/>
+	<key>WKApplication~visionos</key>
+	<true/>
+	<key>WKCompanionAppBundleIdentifier~visionos</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>UISupportedInterfaceOrientations~visionos</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIRequiresFullScreen~visionos</key>
+	<false/>
+	<key>UIRequiresPersistentWiFi~visionos</key>
+	<true/>
+	<key>UIBackgroundModes~visionos</key>
+	<array>
+		<string>background-processing</string>
+		<string>background-fetch</string>
+		<string>background-app-refresh</string>
+	</array>
+	<key>NSRealityCaptureUsageDescription~visionos</key>
+	<string>This app uses reality capture to enable spatial mapping and augmented reality features in visionOS.</string>
+	<key>NSHandsTrackingUsageDescription~visionos</key>
+	<string>This app uses hand tracking to enable gesture-based interactions in spatial computing environments.</string>
+	<key>NSEyeTrackingUsageDescription~visionos</key>
+	<string>This app uses eye tracking to enable gaze-based interactions in spatial computing environments.</string>
+	<key>NSWorldTrackingUsageDescription~visionos</key>
+	<string>This app uses world tracking to enable spatial awareness and augmented reality features.</string>
+	<key>NSBodyTrackingUsageDescription~visionos</key>
+	<string>This app uses body tracking to enable motion-based interactions and fitness features.</string>
+	<key>NSNearbyInteractionUsageDescription~visionos</key>
+	<string>This app uses nearby interaction to enable spatial awareness and device proximity features.</string>
+	<key>NSLocalNetworkUsageDescription~visionos</key>
+	<string>This app uses local network connectivity to enable device-to-device communication and data sharing in spatial computing environments.</string>
+	<key>NSBonjourServices~visionos</key>
+	<array>
+		<string>_infinitumhorizon._tcp</string>
+		<string>_infinitumhorizon._udp</string>
+	</array>
+	<key>NSBluetoothAlwaysUsageDescription~visionos</key>
+	<string>This app uses Bluetooth to enable device connectivity and data sharing in spatial computing environments.</string>
+	<key>NSBluetoothPeripheralUsageDescription~visionos</key>
+	<string>This app uses Bluetooth to enable device connectivity and data sharing in spatial computing environments.</string>
+	<key>NSMotionUsageDescription~visionos</key>
+	<string>This app uses motion data to enhance user experience and provide gesture-based interactions in spatial computing environments.</string>
+	<key>NSFaceIDUsageDescription~visionos</key>
+	<string>This app uses Face ID to securely authenticate users and protect sensitive data in spatial computing environments.</string>
+	<key>NSHealthShareUsageDescription~visionos</key>
+	<string>This app uses Health data to provide personalized insights and health-related features in spatial computing environments.</string>
+	<key>NSHealthUpdateUsageDescription~visionos</key>
+	<string>This app uses Health data to provide personalized insights and health-related features in spatial computing environments.</string>
+	<key>NSLocationWhenInUseUsageDescription~visionos</key>
+	<string>This app uses location services to enhance device connectivity and provide location-based features in spatial computing environments.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription~visionos</key>
+	<string>This app uses location services to enhance device connectivity and provide location-based features in spatial computing environments.</string>
+	<key>NSMicrophoneUsageDescription~visionos</key>
+	<string>This app uses the microphone for voice commands and audio communication features in spatial computing environments.</string>
+	<key>NSCameraUsageDescription~visionos</key>
+	<string>This app uses the camera to enable augmented reality features and device connectivity in spatial computing environments.</string>
 </dict>
 </plist>
