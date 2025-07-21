@@ -2,6 +2,7 @@ import SwiftUI
 
 struct macOSEntryView: View {
     @StateObject private var viewModel: AppViewModel
+    @StateObject private var adManager = AdManager.shared
     @State private var selectedSidebarItem: String? = "home"
     
     init(dataManager: HybridDataManager) {
@@ -98,6 +99,10 @@ struct macOSEntryView: View {
         } message: {
             Text(viewModel.alertMessage)
         }
+        .onAppear {
+            adManager.setDataManager(viewModel.dataManagerInstance)
+            adManager.loadBannerAd()
+        }
     }
 }
 
@@ -105,6 +110,7 @@ struct macOSEntryView: View {
 struct macOSHomeView: View {
     @ObservedObject var viewModel: AppViewModel
     @Binding var selectedSidebarItem: String?
+    @ObservedObject var adManager = AdManager.shared
     
     var body: some View {
         ScrollView {
@@ -251,6 +257,9 @@ struct macOSHomeView: View {
                 }
                 
                 Spacer(minLength: 40)
+                
+                // Banner Ad
+                AdBannerView()
             }
             .padding(.horizontal, 40)
         }

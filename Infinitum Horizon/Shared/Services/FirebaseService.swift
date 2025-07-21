@@ -1,4 +1,5 @@
 import Foundation
+#if !os(visionOS)
 import FirebaseCore
 import FirebaseAuth
 import FirebaseFirestore
@@ -8,8 +9,10 @@ import FirebaseCrashlytics
 import FirebaseMessaging
 import FirebaseRemoteConfig
 import FirebaseDatabase
+#endif
 import Combine
 
+#if !os(visionOS)
 @MainActor
 class FirebaseService: ObservableObject {
     static let shared = FirebaseService()
@@ -439,3 +442,4 @@ extension Notification.Name {
     static let firebaseUserUpdated = Notification.Name("firebaseUserUpdated")
     static let firebaseSessionUpdated = Notification.Name("firebaseSessionUpdated")
 } 
+#endif

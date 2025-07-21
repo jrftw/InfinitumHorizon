@@ -1,8 +1,10 @@
 import Foundation
 import CryptoKit
 import Combine
+#if !os(visionOS)
 import FirebaseAuth
 import FirebaseFirestore
+#endif
 #if os(iOS) || os(tvOS)
 import UIKit
 #elseif os(macOS)
@@ -11,6 +13,7 @@ import AppKit
 import WatchKit
 #endif
 
+#if !os(visionOS)
 @MainActor
 class FirebaseAuthManager: ObservableObject, AuthenticationManager {
     @Published var isAuthenticated = false
@@ -628,3 +631,4 @@ enum AuthError: LocalizedError {
         }
     }
 } 
+#endif

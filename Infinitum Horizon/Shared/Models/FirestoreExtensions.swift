@@ -1,6 +1,9 @@
 import Foundation
+#if !os(visionOS)
 import FirebaseFirestore
+#endif
 
+#if !os(visionOS)
 // MARK: - User Firestore Extensions
 
 extension User {
@@ -242,3 +245,4 @@ enum FirestoreError: LocalizedError {
         }
     }
 } 
+#endif

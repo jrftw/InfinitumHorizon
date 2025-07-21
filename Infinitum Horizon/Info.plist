@@ -125,6 +125,8 @@
 	<string>This app uses reality capture to enable spatial mapping and augmented reality features in visionOS.</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-6815311336585204~2405052859</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>tel</string>

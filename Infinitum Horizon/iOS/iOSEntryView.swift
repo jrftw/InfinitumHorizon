@@ -2,6 +2,7 @@ import SwiftUI
 
 struct iOSEntryView: View {
     @StateObject private var viewModel: AppViewModel
+    @StateObject private var adManager = AdManager.shared
     @State private var selectedTab = 0
     
     init(dataManager: HybridDataManager) {
@@ -71,6 +72,10 @@ struct iOSEntryView: View {
         } message: {
             Text(viewModel.alertMessage)
         }
+        .onAppear {
+            adManager.setDataManager(viewModel.dataManagerInstance)
+            adManager.loadBannerAd()
+        }
     }
 }
 
@@ -78,6 +83,7 @@ struct iOSEntryView: View {
 struct HomeView: View {
     @ObservedObject var viewModel: AppViewModel
     @Binding var selectedTab: Int
+    @ObservedObject var adManager = AdManager.shared
     
     var body: some View {
         ScrollView {
@@ -240,6 +246,9 @@ struct HomeView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                 }
                 
+                // Banner Ad
+                AdBannerView()
+                
                 Spacer(minLength: 32)
             }
             .padding(.horizontal, 20)
@@ -253,6 +262,7 @@ struct HomeView: View {
 // MARK: - Screens View
 struct ScreensView: View {
     @ObservedObject var viewModel: AppViewModel
+    @ObservedObject var adManager = AdManager.shared
     
     var body: some View {
         List {
@@ -307,12 +317,16 @@ struct ScreensView: View {
         .background(.ultraThinMaterial)
         .navigationTitle("Screens")
         .navigationBarTitleDisplayMode(.large)
+        .overlay(alignment: .bottom) {
+            AdBannerView()
+        }
     }
 }
 
 // MARK: - Connect View
 struct ConnectView: View {
     @ObservedObject var viewModel: AppViewModel
+    @ObservedObject var adManager = AdManager.shared
     @State private var messageText = ""
     
     var body: some View {
@@ -487,6 +501,9 @@ struct ConnectView: View {
                 }
                 
                 Spacer(minLength: 32)
+                
+                // Banner Ad
+                AdBannerView()
             }
             .padding(.horizontal, 20)
         }
@@ -500,6 +517,7 @@ struct ConnectView: View {
 struct SettingsView: View {
     @ObservedObject var viewModel: AppViewModel
     @ObservedObject var themeManager = ThemeManager.shared
+    @ObservedObject var adManager = AdManager.shared
     
     var body: some View {
         List {
@@ -732,6 +750,9 @@ struct SettingsView: View {
         .background(.ultraThinMaterial)
         .navigationTitle("Settings")
         .navigationBarTitleDisplayMode(.large)
+        .overlay(alignment: .bottom) {
+            AdBannerView()
+        }
     }
 }
 

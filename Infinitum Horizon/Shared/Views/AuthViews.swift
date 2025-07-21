@@ -185,9 +185,9 @@ struct AuthenticationView<AuthManagerType: AuthenticationManager>: View {
             .sheet(isPresented: $showSignUp) {
                 SignUpView(authManager: authManager)
             }
-            .onChange(of: authManager.authError) { error in
+            .onChange(of: authManager.authError) { oldValue, newValue in
                 // Only show alert if there's an error and we're not already showing one
-                if error != nil && !showErrorAlert {
+                if newValue != nil && !showErrorAlert {
                     // Small delay to ensure proper alert presentation
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         showErrorAlert = true
@@ -414,9 +414,9 @@ struct SignUpView<AuthManagerType: AuthenticationManager>: View {
             .navigationTitle("Sign Up")
             .navigationBarTitleDisplayMode(.inline)
             .navigationViewStyle(StackNavigationViewStyle())
-            .onChange(of: authManager.authError) { error in
+            .onChange(of: authManager.authError) { oldValue, newValue in
                 // Only show alert if there's an error and we're not already showing one
-                if error != nil && !showErrorAlert {
+                if newValue != nil && !showErrorAlert {
                     // Small delay to ensure proper alert presentation
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         showErrorAlert = true
